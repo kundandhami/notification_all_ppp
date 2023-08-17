@@ -1,5 +1,5 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:awesome_notifications_fcm/awesome_notifications_fcm.dart';
+// import 'package:awesome_notifications_fcm/awesome_notifications_fcm.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,31 +22,31 @@ class NotificationController extends ChangeNotifier {
 
   static Future<void> initializationRemoteNotification() async {
     await Firebase.initializeApp();
-    await AwesomeNotificationsFcm().initialize(
-        onFcmSilentDataHandle: onFcmSilentDataHandle,
-        onFcmTokenHandle: onFcmTokenHandle,
-        onNativeTokenHandle: onNativeTokenHandle,
-        licenseKeys: [],
-        debug: true);
+    // await AwesomeNotificationsFcm().initialize(
+    //     onFcmSilentDataHandle: onFcmSilentDataHandle,
+    //     onFcmTokenHandle: onFcmTokenHandle,
+    //     onNativeTokenHandle: onNativeTokenHandle,
+    //     licenseKeys: [],
+    //     debug: true);
   }
 
-  static Future<void> onFcmSilentDataHandle(FcmSilentData fcmSilentData) async {
-    debugPrint("onFcmSilentDataHandle--${fcmSilentData}");
-
-    if (fcmSilentData.data!['islivescore'] == "true") {
-      NotificationController.silentNotificationShow(
-          id: 1,
-          title: fcmSilentData.data!['title']!,
-          body: fcmSilentData.data!['body']!,
-          largeIcon: fcmSilentData.data!['largeIcon']);
-    }
-
-    if (fcmSilentData.createdLifeCycle == NotificationLifeCycle.Foreground) {
-      print("APP IS FORGROUND___");
-    } else {
-      print("APP IS BACKGROUND");
-    }
-  }
+  // static Future<void> onFcmSilentDataHandle(FcmSilentData fcmSilentData) async {
+  //   debugPrint("onFcmSilentDataHandle--${fcmSilentData}");
+  //
+  //   if (fcmSilentData.data!['islivescore'] == "true") {
+  //     NotificationController.silentNotificationShow(
+  //         id: 1,
+  //         title: fcmSilentData.data!['title']!,
+  //         body: fcmSilentData.data!['body']!,
+  //         largeIcon: fcmSilentData.data!['largeIcon']);
+  //   }
+  //
+  //   if (fcmSilentData.createdLifeCycle == NotificationLifeCycle.Foreground) {
+  //     print("APP IS FORGROUND___");
+  //   } else {
+  //     print("APP IS BACKGROUND");
+  //   }
+  // }
 
   static Future<void> onFcmTokenHandle(String token) async {
     debugPrint("onFcmTokenHandle--$token");
@@ -57,25 +57,25 @@ class NotificationController extends ChangeNotifier {
   }
 
   static Future<String> requestToken() async {
-    if (await AwesomeNotificationsFcm().isFirebaseAvailable) {
-      try {
-        return await AwesomeNotificationsFcm().requestFirebaseAppToken();
-      } catch (ex) {
-        debugPrint(ex.toString());
-      }
-    } else {
-      debugPrint("firebase not available in this project");
-    }
+    // if (await AwesomeNotificationsFcm().isFirebaseAvailable) {
+    //   try {
+    //     return await AwesomeNotificationsFcm().requestFirebaseAppToken();
+    //   } catch (ex) {
+    //     debugPrint(ex.toString());
+    //   }
+    // } else {
+    //   debugPrint("firebase not available in this project");
+    // }
     return "";
   }
 
   ///subscribe or unsubscribe topic
   static Future<void> subscribeTopic(String topic) async {
-    await AwesomeNotificationsFcm().subscribeToTopic(topic);
+    // await AwesomeNotificationsFcm().subscribeToTopic(topic);
   }
 
   static Future<void> unSubscribeTopic(String topic) async {
-    await AwesomeNotificationsFcm().unsubscribeToTopic(topic);
+    // await AwesomeNotificationsFcm().unsubscribeToTopic(topic);
   }
 
   /// INITIALIZATION METHOD
@@ -107,14 +107,14 @@ class NotificationController extends ChangeNotifier {
   //EVENT Listner
 
   static Future<void> initializationNotificationListener() async {
-    await AwesomeNotifications().setListeners(
+    /* await AwesomeNotifications().setListeners(
         onActionReceivedMethod: NotificationController.onActionReceivedMethod,
         onNotificationCreatedMethod:
             NotificationController.onNotificationCreatedMethod,
         onNotificationDisplayedMethod:
             NotificationController.onNotificationDisplayedMethod,
         onDismissActionReceivedMethod:
-            NotificationController.onDismissActionReceivedMethod);
+            NotificationController.onDismissActionReceivedMethod);*/
   }
 
   static Future<void> onActionReceivedMethod(
@@ -154,10 +154,9 @@ class NotificationController extends ChangeNotifier {
 
   ///when app is kill state
   static Future<void> getInitialNotificationAction() async {
-    ReceivedAction? receivedAction = await AwesomeNotifications()
-        .getInitialNotificationAction(removeFromActionEvents: true);
-    if (receivedAction == null) return;
-    navigatorHelper(receivedAction);
+    // ReceivedAction? receivedAction = await AwesomeNotifications().getInitialNotificationAction(removeFromActionEvents: true);
+    // if (receivedAction == null) return;
+    // navigatorHelper(receivedAction);
   }
 
   ///groupmessaging replay handle

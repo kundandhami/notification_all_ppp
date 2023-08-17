@@ -35,12 +35,13 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  awesome_notifications: ^0.7.4+1
+  awesome_notifications:
   fluttertoast:
   firebase_core:
   firebase_messaging:
+  cloud_firestore:
 #  flutter_local_notifications:
-  awesome_notifications_fcm:
+#  awesome_notifications_fcm:
 
   audio_service:
   just_audio:
@@ -56,6 +57,19 @@ dependencies:
   provider:
   sms_autofill:
   pin_code_fields: ^8.0.1
+  sqflite:
+  flutter_file_downloader: ^1.1.2
+  permission_handler:
+  razorpay_flutter: ^1.3.5
+  barcode_widget: ^2.0.4
+  flutter_barcode_scanner: ^2.0.0
+  pay: ^1.1.2
+  firebase_auth:
+  firebase_storage:
+  google_sign_in: ^6.1.4
+  quick_actions: ^1.0.5
+
+
 
 
 
@@ -115,3 +129,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+

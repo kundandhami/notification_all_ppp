@@ -84,7 +84,7 @@ class LocalNotification {
           NotificationActionButton(
               key: "REPLY",
               label: "Replay",
-              requireInputText: true,
+              // requireInputText: true,
               autoDismissible: false),
           NotificationActionButton(
               key: "READ", label: "Mark as Read", autoDismissible: true),

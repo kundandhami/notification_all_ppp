@@ -126,6 +126,28 @@ class MaterialDesignIndicatorPainter extends BoxPainter {
   }
 }
 
+class RotatedBoxs extends PageRouteBuilder {
+  Widget child;
+  RotatedBoxs({required this.child})
+      : super(
+            pageBuilder: (context, Animation<double> animation,
+                Animation<double> animation1) {
+              return child;
+            },
+            opaque: false,
+            barrierColor: null,
+            barrierLabel: null,
+            maintainState: true,
+            transitionDuration: Duration(milliseconds: 600),
+            transitionsBuilder: (context, Animation<double> animation,
+                Animation<double> animation1, Widget child) {
+              return FadeTransition(
+                opacity: animation,
+                child: child,
+              );
+            });
+}
+
 ///TODO: CustomScrollerView App Bar Play
 /*
   late ScrollController scrollController;
@@ -251,5 +273,29 @@ class Scrolleable extends SliverPersistentHeaderDelegate {
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
     return true;
   }
+}
+*/
+
+///TODO:navigation
+//   GlobalKey<NavigatorState>
+/*
+
+Future<dynamic>? navigate(String path, {Object? args}) {
+  return navigatorekey.currentState?.pushNamed(path, arguments: args);
+}
+
+Future<dynamic>? navigateAndReplace(String path, {Object? args}) {
+  return navigatorekey.currentState
+      ?.pushReplacementNamed(path, arguments: args);
+}
+
+Future<dynamic>? navigateAndRemoveUntil(String path, {Object? args}) {
+  return navigatorekey.currentState?.pushNamedAndRemoveUntil(
+      path, (Route<dynamic> route) => false,
+      arguments: args);
+}
+
+goBack() {
+  return navigatorekey.currentState?.pop();
 }
 */

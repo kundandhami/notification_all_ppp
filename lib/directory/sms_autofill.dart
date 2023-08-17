@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:notification_all_ppp/directory/d_2.dart';
+import 'package:notification_all_ppp/directory/d_home_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';
+
+import '../practice_all.dart';
 
 class AutoFill extends StatefulWidget {
   const AutoFill({Key? key}) : super(key: key);
@@ -18,10 +22,20 @@ class _AutoFillState extends State<AutoFill> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Auto Fill SMS"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(context, RotatedBoxs(child: DHomePage()));
+              },
+              icon: Icon(Icons.send))
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(
+              height: 20,
+            ),
             SizedBox(
               height: 20,
             ),
